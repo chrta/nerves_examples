@@ -47,6 +47,14 @@ config :ui, UiWeb.Endpoint,
   pubsub: [name: Nerves.PubSub, adapter: Phoenix.PubSub.PG2],
   code_reloader: false
 
+# Configures Drab
+config :drab, UiWeb.Endpoint,
+  otp_app: :ui
+
+# Configures default Drab file extension
+config :phoenix, :template_engines,
+  drab: Drab.Live.Engine
+
 # Allows over the air updates via SSH.
 config :nerves_firmware_ssh,
   authorized_keys: [
